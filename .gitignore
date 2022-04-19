@@ -11,6 +11,10 @@
 # production
 /build
 
+#webstom 
+.idea
+
+
 # misc
 .DS_Store
 .env.local
@@ -23,3 +27,7 @@ yarn-debug.log*
 yarn-error.log*
 .env.*
 !.env.example
+.env
+
+# Local Netlify folder
+.netlify

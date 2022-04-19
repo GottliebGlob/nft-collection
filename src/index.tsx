@@ -3,10 +3,56 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MainLayout from "./components/MainLayout";
+import MainPage from "./routes/MainPage";
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
+import { createTheme, ThemeProvider } from "@material-ui/core";
+
+const theme = createTheme({
+    palette: {
+        type: 'dark',
+    },
+    overrides: {
+        MuiButtonBase: {
+            root: {
+                justifyContent: 'flex-start',
+            },
+        },
+        MuiButton: {
+            root: {
+                textTransform: undefined,
+                padding: '12px 16px',
+            },
+            startIcon: {
+                marginRight: 8,
+            },
+            endIcon: {
+                marginLeft: 8,
+            },
+        },
+    },
+});
+
+
+const withLayout = (Component: any) => (props :any) => (
+    <MainLayout>
+        <Component {...props} />
+    </MainLayout>
+);
+
+const Mint = withLayout(() => <App />);
+const Main = withLayout(() => <MainPage />);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <ThemeProvider theme={theme}>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<Main />}  />
+              <Route path="mint" element={<Mint />} />
+          </Routes>
+      </BrowserRouter>
+      </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -1,4 +1,3 @@
-import { createTheme, ThemeProvider } from "@material-ui/core";
 import { useMemo } from "react";
 import {
     ConnectionProvider,
@@ -24,7 +23,7 @@ import {
 } from '@solana/wallet-adapter-react-ui';
 
 import "./App.css";
-import Home from "./Home";
+import MintPage from "./routes/MintPage";
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -40,30 +39,7 @@ const connection = new anchor.web3.Connection(rpcHost);
 
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
-const theme = createTheme({
-    palette: {
-        type: 'dark',
-    },
-    overrides: {
-        MuiButtonBase: {
-            root: {
-                justifyContent: 'flex-start',
-            },
-        },
-        MuiButton: {
-            root: {
-                textTransform: undefined,
-                padding: '12px 16px',
-            },
-            startIcon: {
-                marginRight: 8,
-            },
-            endIcon: {
-                marginLeft: 8,
-            },
-        },
-    },
-});
+
 
 const App = () => {
     // Custom RPC endpoint.
@@ -88,11 +64,11 @@ const App = () => {
     );
 
   return (
-      <ThemeProvider theme={theme}>
+
         <ConnectionProvider endpoint={endpoint}>
           <WalletProvider wallets={wallets} autoConnect={true}>
             <WalletModalProvider>
-              <Home
+              <MintPage
                 candyMachineId={candyMachineId}
                 connection={connection}
                 txTimeout={txTimeout}
@@ -101,7 +77,6 @@ const App = () => {
             </WalletModalProvider>
           </WalletProvider>
         </ConnectionProvider>
-      </ThemeProvider>
   );
 };
 

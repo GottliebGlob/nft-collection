@@ -3,15 +3,18 @@ import {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {CircularProgress} from '@material-ui/core';
 import {GatewayStatus, useGateway} from '@civic/solana-gateway-react';
-import {CandyMachine} from './candy-machine';
+import {CandyMachine} from '../../candy-machine';
 
 
-export const CTAButton = styled(Button)`
+const CTAButton = styled(Button)`
   display: block !important;
   margin: 0 auto !important;
   background-color: var(--title-text-color) !important;
   min-width: 120px !important;
+  width: 100%;
   font-size: 1em !important;
+  font-family: Pixels !important;
+  color: #fff !important;
 `;
 
 export const MintButton = ({
