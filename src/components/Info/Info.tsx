@@ -1,6 +1,6 @@
 import React from 'react';
 import {Paper, Typography} from "@material-ui/core";
-import styled from "styled-components";
+import {ShimmerText} from "../styled";
 
 
 interface Price {
@@ -8,21 +8,6 @@ interface Price {
 }
 
 export const Info = (props: Price) => {
-    const ShimmerText = styled.h4`
-  margin: 6px 0 0 10px;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
 
     return (
         <Paper style={{

@@ -10,7 +10,11 @@ import { createTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createTheme({
     palette: {
-        type: 'dark',
+        primary: {
+            light: '#9cb9d6',
+            main: '#7aa7c2',
+            dark: '#3d5a80'
+        },
     },
     overrides: {
         MuiButtonBase: {

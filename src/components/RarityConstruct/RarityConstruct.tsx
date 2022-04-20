@@ -1,12 +1,13 @@
 import React, {SyntheticEvent, useState} from 'react';
-import styled from "styled-components";
-import {Container, Grid, Paper, Typography} from "@material-ui/core";
+
+import {Grid, Paper, Typography} from "@material-ui/core";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import "./RarityConstruct.css"
+import {useTheme} from "@material-ui/core";
 
 
 import backOne from "../../img/rarity/back/blue.png"
@@ -25,6 +26,8 @@ interface RarityItem {
 }
 
 export const RarityConstruct = () => {
+    const theme = useTheme()
+
     const [anchorEl, setAnchorEl] = useState<null | EventTarget & Element>(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -112,7 +115,8 @@ export const RarityConstruct = () => {
                 alignItems: 'center'
             }}>
                 <Typography variant="h5" style={{
-                    fontFamily: 'Pixels'
+                    fontFamily: 'Pixels',
+                    color: '#fff'
                 }}>
                     {text}
                 </Typography>
@@ -126,7 +130,8 @@ export const RarityConstruct = () => {
                     backgroundColor: '#e8c809'
                 }}>
                     <Typography variant="body1" style={{
-                        fontFamily: 'Pixels'
+                        fontFamily: 'Pixels',
+                        color: '#fff'
                     }}>
                         {rarity + "%"}
                     </Typography>
@@ -143,9 +148,9 @@ export const RarityConstruct = () => {
             display: 'flex',
             flexDirection: 'column',
             textAlign: 'start',
-            backgroundColor: "#3d5a80",
+            backgroundColor: theme.palette.primary.dark,
             padding: 10,
-            marginTop: '1rem'
+            marginTop: '1rem',
         }}>
             <Grid container spacing={2}>
                 <Grid item md={6}>
@@ -153,7 +158,7 @@ export const RarityConstruct = () => {
                         <Grid item md={12} sm={12} xs={12}>
                     <Paper style={{
                         width: '100%',
-                        backgroundColor: "#7aa7c2",
+                        backgroundColor: theme.palette.primary.main,
                         padding: 0,
                     }}>
                     <List component="nav" aria-label="Device settings"
@@ -200,7 +205,7 @@ export const RarityConstruct = () => {
                 <Grid item md={12} sm={12} xs={12}>
                     <Paper style={{
                         width: '100%',
-                        backgroundColor: "#7aa7c2",
+                        backgroundColor: theme.palette.primary.main,
                         padding: 0,
                     }}>
                         <List component="nav" aria-label="Device settings"

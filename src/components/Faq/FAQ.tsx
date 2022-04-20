@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from "styled-components";
-import {Container, Paper, Typography} from "@material-ui/core";
+import {DesContainer, ShimmerTitle, TextCont} from "../styled";
+
 
 import question from "../../img/icons/question.png"
 import FaqItem from "../FaqItem";
@@ -10,41 +10,7 @@ interface Ref {
 }
 
 export const Faq = (props: Ref) => {
-    const DesContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 20px;
-`;
 
-    const ShimmerTitle = styled.h1`
-  text-align: center;
-  margin: 20px auto;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
-
-    const TextCont = styled(Paper)`
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: start;
-  background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
 
     return (
         <DesContainer  maxWidth="md" style={{

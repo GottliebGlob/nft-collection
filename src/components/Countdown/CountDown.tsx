@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Typography, Paper} from "@material-ui/core";
+import {Typography, Paper} from "@material-ui/core";
 import "./count_down.css"
 
 export const CountDown = ({days, hours, minutes, seconds}: any) => {

@@ -1,17 +1,29 @@
-import React, {useEffect, useRef, useState} from "react";
-import styled from "styled-components";
+import React, {useEffect, useState} from "react";
 import confetti from "canvas-confetti";
 import * as anchor from "@project-serum/anchor";
 import {LAMPORTS_PER_SOL, PublicKey} from "@solana/web3.js";
 import {useAnchorWallet} from "@solana/wallet-adapter-react";
-import {WalletMultiButton} from "@solana/wallet-adapter-react-ui";
 import {GatewayProvider} from '@civic/solana-gateway-react';
 import Countdown from "react-countdown";
-import {Snackbar, Paper, LinearProgress, Chip, Typography, Grid, Container} from "@material-ui/core";
+import {Snackbar, Paper, Grid} from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import {toDate, AlertState, getAtaForMint} from '../../utils';
 import MintButton from '../../components/MintButton';
 import './Home.css'
+import {MainContainer,
+    MintButtonContainer,
+    ShimmerText,
+    ConnectButton,
+    FullWidthConnectButton,
+    NFT,
+    Image,
+    DesContainer,
+    BorderLinearProgress,
+    Wallet,
+    WalletAmount,
+    WalletContainer,
+    ShimmerTitle
+} from "../../components/styled";
 import {
     CandyMachine,
     awaitTransactionSignatureConfirmation,
@@ -19,13 +31,11 @@ import {
     mintOneToken,
     CANDY_MACHINE_PROGRAM,
 } from "../../candy-machine";
-import NavigationBar from "../../components/NavigationBar";
+
 import Info from "../../components/Info";
-import Rarity from "../../components/About";
-import Game from "../../components/Game";
 import CountDown from "../../components/Countdown";
 import InactiveMintButton from "../../components/InactiveMintButton";
-import Faq from "../../components/Faq";
+
 
 import coming from "../../img/icons/coming.png"
 import secondaryRegular from "../../img/btn1/regular.png"
@@ -34,11 +44,11 @@ import secondaryHovered from "../../img/btn1/hovered.png"
 import downloadRegular from "../../img/btn2/regular.png"
 import downloadHovered from "../../img/btn2/hovered.png"
 
-import logo from "../../img/logo.png"
-import Roadmap from "../../components/Roadmap";
 import isMobile from "../../components/isMobile"
-import {FaDiscord, FaTwitter} from "react-icons/fa";
-import Token from "../../components/Token";
+import {BiLeftArrowCircle} from "react-icons/bi"
+import {useTheme} from "@material-ui/core";
+import {NavLink} from "react-router-dom";
+
 
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
 const decimals = process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS ? +process.env.REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS!.toString() : 9;
@@ -52,204 +62,9 @@ export interface HomeProps {
 }
 
 export const MintPage = (props: HomeProps) => {
-    const WalletContainer = styled.div`
-  position: absolute; 
-  top: 0.5rem;
-  right: 0.5rem;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-    const TextCont = styled(Paper)`
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: start;
-  background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
-
-
-    const WalletAmount = styled.div`
-  color: black;
-  width: auto;
-  padding: 5px 5px 5px 16px;
-  min-width: 48px;
-  min-height: auto;
-  border-radius: 22px;
-  background-color: var(--main-text-color);
-  box-shadow: 0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 6px 10px 0px rgb(0 0 0 / 14%), 0px 1px 18px 0px rgb(0 0 0 / 12%);
-  box-sizing: border-box;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-  font-weight: 500;
-  line-height: 1.75;
-  text-transform: uppercase;
-  border: 0;
-  margin: 0;
-  display: inline-flex;
-  outline: 0;
-  position: relative;
-  align-items: center;
-  user-select: none;
-  vertical-align: middle;
-  justify-content: flex-start;
-  gap: 10px;
-`;
-
-    const Wallet = styled.ul`
-  flex: 0 0 auto;
-  margin: 0;
-  padding: 0;
-`;
-
-    const ConnectButton = styled(WalletMultiButton)`
-  border-radius: 18px !important;
-  padding: 6px 16px;
-  background-color: #4E44CE;
-  margin: 0 auto;
-`;
-
-    const FullWidthConnectButton = styled(WalletMultiButton)`
-  border-radius: 10px !important;
-  padding: 6px 16px;
-  background-color: #4E44CE;
-  margin: 0 auto;
-  width: 100%;
-`;
-
-    const NFT = styled(Paper)`
-
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-evenly;
-  text-align: start;
-  background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
-
-
-    const MintButtonContainer = styled.div`
-  button.MuiButton-contained:not(.MuiButton-containedPrimary).Mui-disabled {
-    color: #464646;
-  }
-
-  button.MuiButton-contained:not(.MuiButton-containedPrimary):hover,
-  button.MuiButton-contained:not(.MuiButton-containedPrimary):focus {
-    -webkit-animation: pulse 1s;
-    animation: pulse 1s;
-    box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
-  }
-
-  @-webkit-keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 #ef8f6e;
-    }
-  }
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 #ef8f6e;
-    }
-  }
-`;
-
-
-
-    const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 2%;
-  margin-left: 2%;
-  text-align: center;
-  justify-content: center;
-`;
-
-
-    const DesContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 20px;
-`;
-
-    const Price = styled(Chip)`
-  position: absolute;
-  margin: 5px;
-  font-weight: bold;
-  font-size: 1.2em !important;
-  font-family: 'Patrick Hand', cursive !important;
-`;
-
-    const Image = styled.img`
-  border-radius: 7px;
-  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
-`;
-
-    const BorderLinearProgress = styled(LinearProgress)`
-  margin: 20px;
-  height: 10px !important;
-  border-radius: 30px;
-  border: 2px solid white;
-  box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
-  background-color:var(--main-text-color) !important;
-  
-  > div.MuiLinearProgress-barColorPrimary{
-    background-color:var(--title-text-color) !important;
-  }
-
-  > div.MuiLinearProgress-bar1Determinate {
-    border-radius: 30px !important;
-    background-image: linear-gradient(270deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.5));
-  }
-`;
-
-    const ShimmerText = styled.h3`
-  margin: 6px 0 0 10px;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
-
-    const ShimmerTitle = styled.h1`
-  margin: 20px auto;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
-
-
     const [balance, setBalance] = useState<number>();
     const [isMinting, setIsMinting] = useState(false); // true when user got to press MINT
     const [isActive, setIsActive] = useState(false); // true when countdown completes or whitelisted
-    const [solanaExplorerLink, setSolanaExplorerLink] = useState<string>("");
     const [itemsAvailable, setItemsAvailable] = useState(0);
     const [itemsRedeemed, setItemsRedeemed] = useState(0);
     const [itemsRemaining, setItemsRemaining] = useState(0);
@@ -270,6 +85,7 @@ export const MintPage = (props: HomeProps) => {
     const [downBtn, setDownBtn] = useState(downloadRegular)
 
     const mobileMarker = isMobile()
+    const theme = useTheme()
 
 
     const [alertState, setAlertState] = useState<AlertState>({
@@ -395,7 +211,7 @@ export const MintPage = (props: HomeProps) => {
     };
 
 
-    function displaySuccess(mintPublicKey: any): void {
+    function displaySuccess(): void {
         let remaining = itemsRemaining - 1;
         setItemsRemaining(remaining);
         setIsSoldOut(remaining === 0);
@@ -409,9 +225,6 @@ export const MintPage = (props: HomeProps) => {
         if (!payWithSplToken && balance && balance > 0) {
             setBalance(balance - (whitelistEnabled ? whitelistPrice : price) - solFeesEstimation);
         }
-        setSolanaExplorerLink(cluster === "devnet" || cluster === "testnet"
-            ? ("https://solscan.io/token/" + mintPublicKey + "?cluster=" + cluster)
-            : ("https://solscan.io/token/" + mintPublicKey));
         throwConfetti();
     };
 
@@ -451,7 +264,7 @@ export const MintPage = (props: HomeProps) => {
                     });
 
                     // update front-end amounts
-                    displaySuccess(mint.publicKey);
+                    displaySuccess();
                 } else {
                     setAlertState({
                         open: true,
@@ -515,6 +328,17 @@ export const MintPage = (props: HomeProps) => {
             <MainContainer style={{
                 marginTop: window.innerWidth > 530 ? 50 : 0
             }}>
+                <NavLink to="/" style={{textDecoration: 'none'}}>
+                <BiLeftArrowCircle style={{
+                    position: 'absolute',
+                    top: '0.5rem',
+                    left: '0.5rem',
+                    color: theme.palette.primary.dark,
+                    fontSize: 45
+                }}/>
+                </NavLink>
+
+
                 <WalletContainer>
                     <Wallet>
                         {

@@ -1,6 +1,6 @@
 import React from 'react';
-import {Typography, Slide, Fade, Container, Paper, Grid} from "@material-ui/core";
-import styled from "styled-components";
+import {Typography, Paper, Grid} from "@material-ui/core";
+import {DesContainer, ShimmerTitle, TextCont} from "../styled";
 
 
 interface RoadmapRef {
@@ -8,43 +8,7 @@ interface RoadmapRef {
 }
 
 export const Roadmap = (props: RoadmapRef) => {
-    const DesContainer = styled(Container)`
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  gap: 20px;
-`;
 
-
-    const ShimmerTitle = styled.h1`
-  text-align: center;
-  margin: 20px auto;
-  text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
-  font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
-`;
-
-    const TextCont = styled(Paper)`
- 
-  margin: 0 auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: start;
-  background-color: var(--card-background-color) !important;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-`;
 
     return (
         <DesContainer  maxWidth="md" style={{
@@ -57,12 +21,14 @@ export const Roadmap = (props: RoadmapRef) => {
                 Roadmap
                 </ShimmerTitle>
 
-                <Grid container spacing={1}>
+                <Grid container spacing={1} style={{
+                    color: '#fff'
+                }}>
                     <Grid item md={5} style={{
                         display: "flex",
                         justifyContent: 'center',
                         alignItems: "center",
-                        marginBottom: '0.5rem'
+                        marginBottom: '0.5rem',
                     }}>
                         <Typography variant={window.innerWidth > 530 ? "h4" : "h5"}
                         style={{
@@ -78,7 +44,8 @@ export const Roadmap = (props: RoadmapRef) => {
                         <Paper style={{
                             width: "100%",
                             backgroundColor: "#3d5a80",
-                            marginBottom: '0.5rem'
+                            marginBottom: '0.5rem',
+                            color: '#fff'
                         }}>
                             <div style={{ padding: 10}}>
                             <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
@@ -130,7 +97,8 @@ export const Roadmap = (props: RoadmapRef) => {
                         <Paper style={{
                             width: "100%",
                             backgroundColor: "#3d5a80",
-                            marginBottom: '0.5rem'
+                            marginBottom: '0.5rem',
+                            color: '#fff'
                         }}>
                             <div style={{ padding: 10}}>
                                 <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
@@ -200,7 +168,8 @@ export const Roadmap = (props: RoadmapRef) => {
                         <Paper style={{
                             width: "100%",
                             backgroundColor: "#3d5a80",
-                            marginBottom: '0.5rem'
+                            marginBottom: '0.5rem',
+                            color: '#fff'
                         }}>
                             <div style={{ padding: 10}}>
                                 <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Paper, Typography} from "@material-ui/core";
 import FaqIcon from "../FaqIcon";
 import { Slide } from '@material-ui/core';
