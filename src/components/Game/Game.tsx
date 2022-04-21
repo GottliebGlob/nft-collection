@@ -9,7 +9,7 @@ import profFour from "../../img/icons/profFour.png"
 import profFive from "../../img/icons/profFive.png"
 import profSix from "../../img/icons/profSix.png"
 
-import house from "../../img/house.png"
+import house from "../../img/house.gif"
 import game from "../../img/game.gif"
 
 interface Ref {
@@ -21,24 +21,15 @@ export const Game = (props: Ref) => {
 
     return (
         <>
-            <DesContainer  maxWidth="md" style={{
+            <DesContainer  maxWidth="lg" style={{
                 marginBottom: '3rem',
                 marginTop: '3rem',
+                textAlign: 'center',
+                paddingLeft: '3rem',
+                paddingRight: '3rem'
             }}>
                 <div ref={props.gameRef} />
-                <TextCont elevation={3}>
                     <ShimmerTitle>Game</ShimmerTitle>
-                    <Paper style={{
-                        width: '98%',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        textAlign: 'start',
-                        backgroundColor: "#3d5a80",
-                        padding: 10,
-                        marginBottom: '1rem'
-
-                    }}>
-
                         <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
                                     style={{
                                         color: '#fff',
@@ -67,17 +58,6 @@ export const Game = (props: Ref) => {
                             EACH PROFESSION WILL ALSO AFFECT EARNINGS,
                             THEY ARE SHOWN IN DESCENDING ORDER, RESPECTIVELY IN THEIR RARITY.
                         </Typography>
-                    </Paper>
-
-
-                    <Paper style={{
-                        width: '98%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        textAlign: 'start',
-                        backgroundColor: "#3d5a80",
-                        padding: 10
-                    }}>
 
 
                         <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
@@ -85,6 +65,7 @@ export const Game = (props: Ref) => {
                                         color: '#fff',
                                         fontFamily: 'pixels',
                                         textAlign: 'justify',
+                                        marginTop: '2rem'
                                     }}>
                             <img src={house} alt="loading..." style={{height: window.innerWidth > 530 ? 190 : 100, float: 'right'}}/>
                             Infrastructure will be added soon. Houses for Darkland Creatures will bring you more income.
@@ -95,8 +76,7 @@ export const Game = (props: Ref) => {
                             You will be given a choice of several buildings with different purposes and prices.
                             You can only place 2 buildings on a lot.
                         </Typography>
-                    </Paper>
-                </TextCont>
+
             </DesContainer>
         </>
     );

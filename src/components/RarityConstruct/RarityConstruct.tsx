@@ -143,15 +143,7 @@ export const RarityConstruct = () => {
 
 
     return (
-        <Paper style={{
-            width: '98%',
-            display: 'flex',
-            flexDirection: 'column',
-            textAlign: 'start',
-            backgroundColor: theme.palette.primary.dark,
-            padding: 10,
-            marginTop: '1rem',
-        }}>
+
             <Grid container spacing={2}>
                 <Grid item md={6}>
                     <Grid container spacing={2}>
@@ -256,7 +248,7 @@ export const RarityConstruct = () => {
                     <img src={imagesTwo[selectedIndexTwo]} alt="loading..." className="second-image" />
                 </Grid>
             </Grid>
-        </Paper>
+
     );
 };
 

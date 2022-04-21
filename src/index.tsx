@@ -11,9 +11,9 @@ import { createTheme, ThemeProvider } from "@material-ui/core";
 const theme = createTheme({
     palette: {
         primary: {
-            light: '#9cb9d6',
-            main: '#7aa7c2',
-            dark: '#3d5a80'
+            light: '#bac76b',
+            main: '#84b75a',
+            dark: '#6ca042'
         },
     },
     overrides: {

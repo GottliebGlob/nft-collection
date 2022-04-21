@@ -10,7 +10,7 @@ export const TextCont = styled(Paper)`
   align-items: center;
   justify-content: center;
   text-align: start;
-  background-color: var(--card-background-color) !important;
+  background-color: var(--main-background-color) !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
 `;
 
@@ -19,11 +19,18 @@ export const MainContainer = styled.div`
       flex-direction: column;
       margin-top: 20px;
       margin-bottom: 20px;
-      margin-right: 2%;
-      margin-left: 2%;
       text-align: center;
       justify-content: center;
     `;
+
+export const FullHeightContainer = styled.div`
+      display: flex;
+      min-height: 100vh;
+      width: 100vw;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+`
 
 export const DesContainer = styled(Container)`
   display: flex;
@@ -155,31 +162,14 @@ export const BorderLinearProgress = styled(LinearProgress)`
 export const ShimmerText = styled.h3`
   margin: 6px 0 0 10px;
   text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
+  color: #fff;
   font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
+ 
 `;
 
 export const ShimmerTitle = styled.h1`
   margin: 20px auto;
   text-transform: uppercase;
-  animation: glow 2s ease-in-out infinite alternate;
-  color: var(--main-text-color);
+  color: #fff;
   font-family: Pixels;
-  @keyframes glow {
-    from {
-      text-shadow: 0 0 20px var(--main-text-color);
-    }
-    to {
-      text-shadow: 0 0 30px var(--title-text-color), 0 0 10px var(--title-text-color);
-    }
-  }
 `;

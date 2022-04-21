@@ -1,23 +1,28 @@
 import React, {useRef} from "react";
 
-import {MainContainer, TextCont, DesContainer} from "../../components/styled";
+import {MainContainer, TextCont, DesContainer, FullHeightContainer} from "../../components/styled";
 
 import NavigationBar from "../../components/NavigationBar";
-import Rarity from "../../components/About";
+import About from "../../components/About";
 import Game from "../../components/Game";
 import Faq from "../../components/Faq";
 import Roadmap from "../../components/Roadmap";
-import Token from "../../components/Token";
 
 import isMobile from "../../components/isMobile"
 
 import logo from "../../img/logo.png"
+
+import background from "../../img/back.png"
 import {FaDiscord, FaTwitter} from "react-icons/fa";
+import {useTheme} from "@material-ui/core";
+import Rarity from "../../components/Rarity";
+import Team from "../../components/Team";
 
 
 
 export const MainPage = () => {
     const mobileMarker = isMobile()
+    const theme = useTheme()
 
     const aboutRef = useRef<any>(null)
     const rarityRef = useRef<any>(null)
@@ -27,19 +32,12 @@ export const MainPage = () => {
     const roadmapRef = useRef<any>(null)
 
 
+
     return (
         <main>
-            <MainContainer style={{
-                marginTop: window.innerWidth > 530 ? 20 : 0,
-            }}>
-                <h2 style={{
-                    marginBottom: mobileMarker ? '0.2rem' : '1rem'
+                <FullHeightContainer style={{
+                    backgroundColor: theme.palette.primary.main
                 }}>
-                    <img src={logo} alt="loading..."
-                         style={{width: window.innerWidth > 530 ? "58%" : "100%", textAlign: 'center'}}/>
-                </h2>
-
-
                 {
                     mobileMarker ?
                         <DesContainer maxWidth="md" style={{
@@ -72,18 +70,46 @@ export const MainPage = () => {
                         />
                 }
 
+                    <img src={logo} alt="loading..."
+                         style={{width: window.innerWidth > 530 ? "40%" : "90%", textAlign: 'center'}}/>
 
-            </MainContainer>
+                    <About aboutRef={aboutRef} rarityRef={rarityRef}/>
+                </FullHeightContainer>
 
-            <Rarity aboutRef={aboutRef} rarityRef={rarityRef}/>
+            <FullHeightContainer style={{
+                backgroundImage: `url(${background})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
+              <Rarity rarityRef={rarityRef}  />
 
-            <Game gameRef={gameRef}/>
+            </FullHeightContainer>
 
-            <Token tokenRef={tokenRef} />
+            <FullHeightContainer style={{
+                backgroundColor: theme.palette.primary.main
+            }}>
+                <Game gameRef={gameRef}/>
+            </FullHeightContainer>
 
+            <FullHeightContainer style={{
+                backgroundColor: theme.palette.primary.light
+            }}>
             <Faq faqRef={faqRef}/>
+            </FullHeightContainer>
 
+            <FullHeightContainer style={{
+                backgroundImage: `url(${background})`,
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover'
+            }}>
             <Roadmap roadmapRef={roadmapRef}/>
+            </FullHeightContainer>
+
+            <FullHeightContainer style={{
+                backgroundColor: theme.palette.primary.dark
+            }}>
+               <Team />
+            </FullHeightContainer>
 
         </main>
     );

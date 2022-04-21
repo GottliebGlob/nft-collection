@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Paper, Typography} from "@material-ui/core";
-import FaqIcon from "../FaqIcon";
 import { Slide } from '@material-ui/core';
+import {useTheme} from "@material-ui/core";
 
 interface Faq {
     question: string;
@@ -10,6 +10,7 @@ interface Faq {
 
 export const FaqItem = (props: Faq) => {
     const [isOpen, setIsOpen] = useState(false)
+    const theme = useTheme()
 
     const toggleOpen = () => {
         setIsOpen(!isOpen)
@@ -22,10 +23,12 @@ export const FaqItem = (props: Faq) => {
                display: 'flex',
                flexDirection: 'row',
                textAlign: 'start',
-               backgroundColor: "#3d5a80",
+               backgroundColor: theme.palette.primary.dark,
                padding: 10,
-               marginBottom: '1rem'
+               marginBottom: '1rem',
+               cursor: 'pointer'
            }}
+                  onClick={toggleOpen}
            >
                <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
                            style={{
@@ -33,8 +36,6 @@ export const FaqItem = (props: Faq) => {
                                fontFamily: 'pixels',
                                textAlign: 'justify'
                            }}>
-                  <FaqIcon flag={isOpen} handler={toggleOpen} />
-
                    {props.question}
                </Typography>
            </Paper>
@@ -49,7 +50,7 @@ export const FaqItem = (props: Faq) => {
            }}>
                <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
                            style={{
-                               color: '#3d5a80',
+                               color: theme.palette.primary.dark,
                                fontFamily: 'pixels',
                                textAlign: 'justify'
                            }}>

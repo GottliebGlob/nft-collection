@@ -1,6 +1,6 @@
 import React from 'react';
 import {DesContainer, ShimmerTitle, TextCont} from "../styled";
-
+import {useTheme} from "@material-ui/core";
 
 import question from "../../img/icons/question.png"
 import FaqItem from "../FaqItem";
@@ -10,16 +10,18 @@ interface Ref {
 }
 
 export const Faq = (props: Ref) => {
-
+const theme = useTheme()
 
     return (
         <DesContainer  maxWidth="md" style={{
             marginBottom: '3rem',
             marginTop: '2rem',
+            textAlign: 'center'
         }}>
-            <TextCont elevation={3} >
                 <div ref={props.faqRef} />
-                <ShimmerTitle >
+                <ShimmerTitle style={{
+
+                }}>
                     <img src={question} alt="loading..." style={{height: 30, marginRight: 3}}/>
                     FAQ
                     <img src={question} alt="loading..." style={{height: 30, marginLeft: 3}}/>
@@ -50,7 +52,6 @@ export const Faq = (props: Ref) => {
                 <FaqItem question="How to get whitelist❓"
                          answer="Be the holder of 1 or more NFT Darkland Creatures collection or
                          Invite 3 friends to our discord and and Reach Level 6"/>
-            </TextCont>
         </DesContainer>
     );
 };

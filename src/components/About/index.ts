@@ -1,3 +1,3 @@
-import {Rarity} from "./Rarity";
+import {About} from "./About";
 
-export default Rarity
+export default About

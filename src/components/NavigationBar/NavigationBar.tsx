@@ -25,8 +25,9 @@ export const NavigationBar = (props: Refs) => {
         <Paper
             style={{
                 backgroundColor: '#fff',
-                width: '100%',
-                marginBottom: '3rem',
+                width: '90vw',
+                marginBottom: '2rem',
+                marginTop: '1rem',
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -38,8 +39,9 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.aboutRef)}
                 style={{
-                    width: '15%',
-                    boxSizing: 'border-box'
+                    width: '13%',
+                    boxSizing: 'border-box',
+                    textAlign: 'center'
                 }}>
                 <NavLink to="/mint" style={{textDecoration: 'none'}}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
@@ -57,8 +59,9 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.aboutRef)}
                 style={{
-                    width: '15%',
-                    boxSizing: 'border-box'
+                    width: '13%',
+                    boxSizing: 'border-box',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
@@ -74,7 +77,8 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.rarityRef)}
                 style={{
-                    width: '15%',
+                    width: '13%',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
@@ -91,7 +95,8 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.gameRef)}
                 style={{
-                    width: '15%',
+                    width: '13%',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
@@ -108,7 +113,8 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.tokenRef)}
                 style={{
-                    width: '15%',
+                    width: '13%',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
@@ -125,7 +131,8 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.faqRef)}
                 style={{
-                    width: '15%',
+                    width: '13%',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
@@ -142,7 +149,8 @@ export const NavigationBar = (props: Refs) => {
                 className="hovered-div"
                 onClick={() => handleNavClick(props.roadmapRef)}
                 style={{
-                    width: '15%',
+                    width: '13%',
+                    textAlign: 'center'
                 }}>
                 <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
                             style={{
