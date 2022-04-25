@@ -22,11 +22,11 @@ export const Game = (props: Ref) => {
     return (
         <>
             <DesContainer  maxWidth="lg" style={{
-                marginBottom: '3rem',
-                marginTop: '3rem',
+                marginBottom: window.innerWidth > 530 ? '3rem' : '1rem',
+                marginTop: window.innerWidth > 530 ? '3rem' : '1rem',
                 textAlign: 'center',
-                paddingLeft: '3rem',
-                paddingRight: '3rem'
+                paddingLeft:  window.innerWidth > 530 ? '3rem' : '1rem',
+                paddingRight:  window.innerWidth > 530 ? '3rem' : '1rem'
             }}>
                 <div ref={props.gameRef} />
                     <ShimmerTitle>Game</ShimmerTitle>
@@ -65,10 +65,11 @@ export const Game = (props: Ref) => {
                                         color: '#fff',
                                         fontFamily: 'pixels',
                                         textAlign: 'justify',
-                                        marginTop: '2rem'
+                                        marginTop: window.innerWidth > 530 ? '2rem' : '1.5rem'
                                     }}>
-                            <img src={house} alt="loading..." style={{height: window.innerWidth > 530 ? 190 : 100, float: 'right'}}/>
-                            Infrastructure will be added soon. Houses for Darkland Creatures will bring you more income.
+                            <img src={house} alt="loading..." style={{height: window.innerWidth > 530 ? 190 : 0, float: 'right'}}/>
+                            Infrastructure will be added soon.
+                            Houses for Darkland Creatures will bring you more income.
                             This will be an addition to regular cards.
                             They will be located on your ground and bring new features. You can buy them on the in-game market for ONYX tokens.
                             One of the structures is a mill where you can burn your NFTs and receive a fixed income every day.

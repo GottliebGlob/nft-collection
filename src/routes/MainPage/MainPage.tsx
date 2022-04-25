@@ -14,9 +14,10 @@ import logo from "../../img/logo.png"
 
 import background from "../../img/back.png"
 import {FaDiscord, FaTwitter} from "react-icons/fa";
-import {useTheme} from "@material-ui/core";
+import {Grid, useTheme} from "@material-ui/core";
 import Rarity from "../../components/Rarity";
 import Team from "../../components/Team";
+import NftCarousel from "../../components/Carousel";
 
 
 
@@ -36,16 +37,19 @@ export const MainPage = () => {
     return (
         <main>
                 <FullHeightContainer style={{
-                    backgroundColor: theme.palette.primary.main
+                    backgroundImage: `url(${background})`,
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover'
                 }}>
                 {
                     mobileMarker ?
-                        <DesContainer maxWidth="md" style={{
+                        <DesContainer maxWidth="lg" style={{
                             marginBottom: '1rem'
                         }}>
                             <TextCont elevation={1}
                                       style={{
-                                          padding: '0.5rem'
+                                          padding: '0.5rem',
+                                          marginTop: '1rem'
                                       }}
                             >
                                 <div style={{
@@ -53,6 +57,7 @@ export const MainPage = () => {
                                     width: '100%',
                                     flexDirection: 'row',
                                     justifyContent: 'space-evenly',
+
 
                                 }}>
                                     <FaDiscord style={{fontSize: 50, color: '#fff'}}
@@ -71,15 +76,18 @@ export const MainPage = () => {
                 }
 
                     <img src={logo} alt="loading..."
-                         style={{width: window.innerWidth > 530 ? "40%" : "90%", textAlign: 'center'}}/>
+                         style={{width: window.innerWidth > 530 ? "30%" : "90%", textAlign: 'center'}}/>
 
-                    <About aboutRef={aboutRef} rarityRef={rarityRef}/>
+                    <NftCarousel />
+
+                           <About aboutRef={aboutRef} rarityRef={rarityRef}/>
+
+
+
                 </FullHeightContainer>
 
             <FullHeightContainer style={{
-                backgroundImage: `url(${background})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover'
+                backgroundColor: theme.palette.primary.light
             }}>
               <Rarity rarityRef={rarityRef}  />
 
@@ -92,17 +100,18 @@ export const MainPage = () => {
             </FullHeightContainer>
 
             <FullHeightContainer style={{
-                backgroundColor: theme.palette.primary.light
-            }}>
-            <Faq faqRef={faqRef}/>
-            </FullHeightContainer>
-
-            <FullHeightContainer style={{
                 backgroundImage: `url(${background})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover'
             }}>
-            <Roadmap roadmapRef={roadmapRef}/>
+                <Roadmap roadmapRef={roadmapRef}/>
+            </FullHeightContainer>
+
+            <FullHeightContainer style={{
+                backgroundColor: theme.palette.primary.light,
+                minHeight: window.innerWidth > 530 ? '100vh' : '100%'
+            }}>
+            <Faq faqRef={faqRef}/>
             </FullHeightContainer>
 
             <FullHeightContainer style={{

@@ -55,7 +55,9 @@ export const Rarity = (props: Ref) => {
                             THESE CARDS WILL BRING INCOME in Onyx tokens. The more rare NFTs you get the more
                             income they will generate!
                         </Typography>
-                    <ShimmerTitle>Rarity playground</ShimmerTitle>
+                    <ShimmerTitle style={{
+                        textAlign: 'center'
+                    }}>Rarity sandbox</ShimmerTitle>
                     <RarityConstruct />
                 </TextCont>
             </DesContainer>

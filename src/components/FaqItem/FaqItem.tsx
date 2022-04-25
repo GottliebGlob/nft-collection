@@ -24,7 +24,7 @@ export const FaqItem = (props: Faq) => {
                flexDirection: 'row',
                textAlign: 'start',
                backgroundColor: theme.palette.primary.dark,
-               padding: 10,
+               padding: window.innerWidth > 530 ? 10 : 5,
                marginBottom: '1rem',
                cursor: 'pointer'
            }}

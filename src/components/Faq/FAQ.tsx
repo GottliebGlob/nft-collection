@@ -14,8 +14,8 @@ const theme = useTheme()
 
     return (
         <DesContainer  maxWidth="md" style={{
-            marginBottom: '3rem',
-            marginTop: '2rem',
+            marginBottom: window.innerWidth > 530 ? '3rem' : '0.5rem',
+            marginTop: window.innerWidth > 530 ? '2rem' : '0.5rem',
             textAlign: 'center'
         }}>
                 <div ref={props.faqRef} />
