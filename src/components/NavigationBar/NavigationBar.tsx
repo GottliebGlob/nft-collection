@@ -166,9 +166,9 @@ export const NavigationBar = (props: Refs) => {
             <FaDiscord style={{fontSize: 30, color: 'black', marginRight: window.innerWidth > 480 ? '1.5rem' : '1rem',
                 marginLeft: window.innerWidth > 480 ? '1.5rem' : '1rem'
             }}
-                       onClick={()=> window.open("https://discord.gg/sVcy4xpGAu", "_blank")} />
+                       onClick={()=> window.open("https://discord.gg/drXDPBME2D", "_blank")} />
             <FaTwitter style={{fontSize: 30, color: 'black', marginRight: window.innerWidth > 480 ? '1.5rem' : '1rem'}}
-                       onClick={()=> window.open("https://twitter.com/heroes_of_veil", "_blank")}
+                       onClick={()=> window.open("https://twitter.com/Darkland_creat", "_blank")}
             />
 
         </Paper>

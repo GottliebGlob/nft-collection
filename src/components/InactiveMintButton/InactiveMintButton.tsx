@@ -19,7 +19,7 @@ export const InactiveMintButton = () => {
 
     return (
         <div style={{
-            marginTop: window.innerWidth > 530 ? '2rem' : 0
+            marginTop: window.innerWidth > 530 ? '0.5rem' : 0
         }}>
             <CTAButton variant="contained" onClick={() => alert(alertMessage)}>
                 Mint

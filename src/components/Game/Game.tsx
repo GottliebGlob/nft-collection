@@ -47,11 +47,12 @@ export const Game = (props: Ref) => {
                             BLACKSMITH
                             <img src={profOne} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>,
                             MINER
-                            <img src={profTwo} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>, LOGGER
+                            <img src={profTwo} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>,
+                            LUMBERJACK
                             <img src={profThree} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>,
                             FISHERMAN
                             <img src={profFour} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>,
-                            GARDENER
+                            FARMER
                             <img src={profFive} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>,
                             WARRIOR
                             <img src={profSix} alt="loading..." style={{height: 25, marginLeft: 5, marginRight: 5}}/>.

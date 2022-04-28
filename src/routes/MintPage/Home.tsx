@@ -32,6 +32,9 @@ import {
     CANDY_MACHINE_PROGRAM,
 } from "../../candy-machine";
 
+import nft_image from "../../img/carousel/two.gif"
+import mint_back from "../../img/mint_back.png"
+
 import Info from "../../components/Info";
 import CountDown from "../../components/Countdown";
 import InactiveMintButton from "../../components/InactiveMintButton";
@@ -48,6 +51,7 @@ import isMobile from "../../components/isMobile"
 import {BiLeftArrowCircle} from "react-icons/bi"
 import {useTheme} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
+import logo from "../../img/logo.png";
 
 
 const cluster = process.env.REACT_APP_SOLANA_NETWORK!.toString();
@@ -80,6 +84,7 @@ export const MintPage = (props: HomeProps) => {
     const [endDate, setEndDate] = useState<Date>();
     const [isPresale, setIsPresale] = useState(false);
     const [isWLOnly, setIsWLOnly] = useState(false);
+    const [refreshFlag, setRefreshFlag] = useState(false)
 
     const [secBtn, setSecBtn] = useState(secondaryRegular)
     const [downBtn, setDownBtn] = useState(downloadRegular)
@@ -108,7 +113,6 @@ export const MintPage = (props: HomeProps) => {
                 props.candyMachineId,
                 props.connection
             );
-
             setCandyMachine(cndy);
             setItemsAvailable(cndy.state.itemsAvailable);
             setItemsRemaining(cndy.state.itemsRemaining);
@@ -318,13 +322,30 @@ export const MintPage = (props: HomeProps) => {
         props.candyMachineId,
         props.connection,
         isEnded,
-        isPresale
+        isPresale,
+        refreshFlag
     ]);
 
 
+    useEffect(
+        () => {
+            let timer1 = setInterval(() => setRefreshFlag(!refreshFlag), 5000);
+            return () => {
+                clearInterval(timer1);
+            };
+        },
+        [refreshFlag]
+    );
+
 
     return (
-        <main>
+        <main style={{
+            backgroundImage: `url(${mint_back})`,
+            width: '100%',
+            backgroundSize: 'cover',
+            height: '100%',
+            minHeight: '100vh'
+        }}>
             <MainContainer style={{
                 marginTop: window.innerWidth > 530 ? 50 : 0
             }}>
@@ -333,7 +354,7 @@ export const MintPage = (props: HomeProps) => {
                     position: 'absolute',
                     top: '0.5rem',
                     left: '0.5rem',
-                    color: theme.palette.primary.dark,
+                    color: theme.palette.primary.light,
                     fontSize: 45
                 }}/>
                 </NavLink>
@@ -356,19 +377,17 @@ export const MintPage = (props: HomeProps) => {
                 {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
                 <ShimmerTitle>You are whitelisted!</ShimmerTitle>}
 
-                    <DesContainer  maxWidth="md">
-                        <NFT elevation={3}>
+                    <DesContainer  maxWidth="md" style={{width: '50%', maxWidth: 650}}>
                         <Grid container spacing={0}>
-                        <Grid item md={6} sm={12}>
-                            <Image
-                                style={{
-                                    width: window.innerWidth > 530 ? 400 : "100%"
-                                }}
-                                src="cool-cats.gif"
-                                alt="NFT To Mint"/>
+                        <Grid item md={12} sm={12} style={{
+                            textAlign: 'center',
+                            marginBottom: '1rem'
+                        }}>
+                            <img src={nft_image} alt="loading..."
+                                 style={{width: window.innerWidth > 530 ? 300 : "90%", textAlign: 'center'}}/>
                         </Grid>
 
-                            <Grid item md={6} sm={12}>
+                            <Grid item md={12} sm={12}>
                                 <Grid container spacing={mobileMarker ? 0 : 1} style={{
                                     width: '100%'
                                 }}>
@@ -398,7 +417,7 @@ export const MintPage = (props: HomeProps) => {
                                                     value={100 - (itemsRemaining * 100 / itemsAvailable)}/>
                                             </div>
                                         </Paper> : <Countdown
-                                            date={new Date("02 Apr 2022 14:00:00 GMT")}
+                                            date={new Date("14 May 2022 17:00:00 GMT")}
                                             onMount={({completed}) => completed && setIsActive(!isEnded)}
                                             onComplete={() => {
                                                 setIsActive(!isEnded);
@@ -451,53 +470,11 @@ export const MintPage = (props: HomeProps) => {
                                         </MintButtonContainer>
                                     </Grid>
 
-                                    <Grid item md={12} sm={12} xs={12} style={{
-                                        marginTop: '1rem'
-                                    }}>
-                                        <Grid container spacing={1}>
-                                            <Grid item md={6} sm={6} xs={6}>
-                                                <div style={{
-                                                    position: "relative",
-                                                    textAlign: 'center'
-                                                }}>
-                                                <img src={secBtn}
-                                                     alt="loading..."
-                                                     style={{width: '100%', cursor: 'pointer'}}
-                                                onMouseOver={() => setSecBtn(secondaryHovered)}
-                                                     onMouseOut={() => setSecBtn(secondaryRegular)}
-                                                />
-                                                </div>
-                                            </Grid>
-                                            <Grid item md={6} sm={6} xs={6}>
-                                                <div style={{
-                                                    position: "relative",
-                                                    textAlign: 'center'
-                                                }}>
-                                                    <img src={coming}
-                                                         style={{
-                                                             display: downBtn === downloadHovered ? "block" : "none",
-                                                             width: '100%',
-                                                             position: 'absolute',
-                                                             top: -60
-                                                         }}/>
-                                                    <img src={downBtn}
-                                                         alt="loading..."
-                                                         style={{width: '100%', cursor: 'pointer'}}
-                                                         onMouseOver={() => setDownBtn(downloadHovered)}
-                                                         onMouseOut={() => setDownBtn(downloadRegular)}
-                                                    />
-                                                </div>
-                                            </Grid>
-                                        </Grid>
-                                    </Grid>
-
-
                                 </Grid>
 
                             </Grid>
                         </Grid>
 
-                        </NFT>
                     </DesContainer>
 
             </MainContainer>

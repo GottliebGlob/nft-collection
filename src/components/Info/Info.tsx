@@ -1,5 +1,5 @@
 import React from 'react';
-import {Paper, Typography} from "@material-ui/core";
+import {Grid, Paper, Typography, useTheme} from "@material-ui/core";
 import {ShimmerText} from "../styled";
 
 
@@ -8,47 +8,66 @@ interface Price {
 }
 
 export const Info = (props: Price) => {
+    const theme = useTheme()
+
 
     return (
-        <Paper style={{
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            backgroundColor: "#3d5a80",
-            marginTop: window.innerWidth > 530 ? 0 : '0.5rem'
-        }}>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                padding: 10,
-                justifyContent: window.innerWidth > 530 ? "flex-start" : 'center'
-            }}>
-                <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
-                            style={{
-                                color: '#fff',
-                                fontFamily: 'pixels',
-                            }}
-                >
-                    Price
-                </Typography>
+        <Grid container spacing={1}>
+            <Grid item sm={6} md={6} lg={6}>
+                <Paper style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: theme.palette.primary.dark,
+                    marginTop: window.innerWidth > 530 ? 0 : '0.5rem'
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        padding: 10,
+                        justifyContent: 'center'
+                    }}>
+                        <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
+                                    style={{
+                                        color: '#fff',
+                                        fontFamily: 'pixels',
+                                    }}
+                        >
+                            Price
+                        </Typography>
 
-                <ShimmerText>{props.price}</ShimmerText>
-            </div>
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                padding: 10,
-                justifyContent: window.innerWidth > 530 ? "flex-start" : 'center'
-            }}>
-                <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
-                            style={{color: '#fff', fontFamily: 'pixels',}}>
-                    Supply
-                </Typography>
+                        <ShimmerText>{props.price}</ShimmerText>
+                    </div>
+                </Paper>
+            </Grid>
 
-                <ShimmerText>555</ShimmerText>
-            </div>
+            <Grid item sm={6} md={6} lg={6}>
+                <Paper style={{
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    backgroundColor: theme.palette.primary.dark,
+                    marginTop: window.innerWidth > 530 ? 0 : '0.5rem'
+                }}>
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        padding: 10,
+                        justifyContent: 'center'
+                    }}>
+                        <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
+                                    style={{color: '#fff', fontFamily: 'pixels',}}>
+                            Supply
+                        </Typography>
 
-        </Paper>
+                        <ShimmerText>555</ShimmerText>
+                    </div>
+
+                </Paper>
+            </Grid>
+
+        </Grid>
     );
 };
