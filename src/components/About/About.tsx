@@ -24,9 +24,9 @@ export const About = (props: Ref) => {
                                     fontFamily: 'pixels',
                                     textAlign: 'justify'
                                 }}>
-                        Darkland Creatures Cards is a collection of 555 animated cards on the
-                        Solana blockchain. All cards will be transferred to the upcoming Polygon
-                        game to bring it's own daily income and show their secrets!
+                        Forest Industry  is a collection of 555 animated cards on the Solana blockchain.
+                        All cards will be transferred to the upcoming  game to bring it's own daily
+                        income and show their secrets!
                     </Typography>
             </TextCont>
         </DesContainer>
