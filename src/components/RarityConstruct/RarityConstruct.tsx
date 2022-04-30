@@ -10,20 +10,11 @@ import "./RarityConstruct.css"
 import {useTheme} from "@material-ui/core";
 
 
-import backOne from "../../img/rarity/back/blue.png"
-import backTwo from "../../img/rarity/back/orange.png"
-import backThree from "../../img/rarity/back/pink.png"
-
-import catOne from "../../img/rarity/body/grey.png"
-import catTwo from "../../img/rarity/body/sandy.png"
-import catThree from "../../img/rarity/body/white.png"
-import catFour from "../../img/rarity/body/siamese.png"
-import catFive from "../../img/rarity/body/striped.png"
-
 interface RarityItem {
     rarity: number,
-    text: string
+    text: string,
 }
+
 
 export const RarityConstruct = () => {
     const theme = useTheme()
@@ -31,11 +22,36 @@ export const RarityConstruct = () => {
     const [anchorEl, setAnchorEl] = useState<null | EventTarget & Element>(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
 
-
     const [anchorElTwo, setAnchorElTwo] = useState<null | EventTarget & Element>(null);
-    const [selectedIndexTwo, setSelectedIndexTwo] = useState(0);
+    const [selectedIndexTwo, setSelectedIndexTwo] = useState(14);
+
+    const [anchorElThree, setAnchorElThree] = useState<null | EventTarget & Element>(null);
+    const [selectedIndexThree, setSelectedIndexThree] = useState(0);
+
+    const [anchorElFour, setAnchorElFour] = useState<null | EventTarget & Element>(null);
+    const [selectedIndexFour, setSelectedIndexFour] = useState(0);
+
+    const [anchorElFive, setAnchorElFive] = useState<null | EventTarget & Element>(null);
+    const [selectedIndexFive, setSelectedIndexFive] = useState(0);
 
 
+    function importAll(r: any) {
+        return r.keys().map(r);
+    }
+
+    //@ts-ignore
+    const back = importAll(require.context('../../img/rarity/background', false, /\.(gif)$/));
+    //@ts-ignore
+    const job = importAll(require.context('../../img/rarity/job', false, /\.(gif)$/));
+    //@ts-ignore
+    const legendary = importAll(require.context('../../img/rarity/legendary', false, /\.(gif)$/));
+    //@ts-ignore
+    const rarity = importAll(require.context('../../img/rarity/rarity', false, /\.(gif)$/));
+    //@ts-ignore
+    const common = importAll(require.context('../../img/rarity/common', false, /\.(gif)$/));
+
+
+    //Field one
     const handleClickListItem = (event: SyntheticEvent) => {
         setAnchorEl(event.currentTarget);
     };
@@ -45,6 +61,12 @@ export const RarityConstruct = () => {
         setAnchorEl(null);
     };
 
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+
+    //Field two
     const handleCloseTwo = () => {
         setAnchorElTwo(null);
     };
@@ -55,58 +77,273 @@ export const RarityConstruct = () => {
 
     const handleMenuItemClickTwo = (event: SyntheticEvent, index: number) => {
         setSelectedIndexTwo(index);
+        setSelectedIndexFive(0);
         setAnchorElTwo(null);
     };
 
-    const handleClose = () => {
-        setAnchorEl(null);
+    //Field three
+    const handleCloseThree = () => {
+        setAnchorElThree(null);
     };
 
+    const handleClickListItemThree = (event: SyntheticEvent) => {
+        setAnchorElThree(event.currentTarget);
+    };
+
+    const handleMenuItemClickThree = (event: SyntheticEvent, index: number) => {
+        setSelectedIndexThree(index);
+        setAnchorElThree(null);
+    };
+
+    //Field four
+    const handleCloseFour = () => {
+        setAnchorElFour(null);
+    };
+
+    const handleClickListItemFour = (event: SyntheticEvent) => {
+        setAnchorElFour(event.currentTarget);
+    };
+
+    const handleMenuItemClickFour = (event: SyntheticEvent, index: number) => {
+        setSelectedIndexFour(index);
+        setAnchorElFour(null);
+    };
+
+    //Field five
+    const handleCloseFive = () => {
+        setAnchorElFive(null);
+    };
+
+    const handleClickListItemFive = (event: SyntheticEvent) => {
+        setAnchorElFive(event.currentTarget);
+    };
+
+    const handleMenuItemClickFive = (event: SyntheticEvent, index: number) => {
+        setSelectedIndexFive(index);
+        setSelectedIndexTwo(0);
+        setAnchorElFive(null);
+    };
+
+
+
+
     const optionsOne = [
-        'Blue',
-        'Orange',
-        'Pink',
+        'bg',
+        'bg',
+        'bg',
+        'bg',
+        'bg',
+        'bg'
     ];
 
     const optionsTwo = [
-        'Gray',
-        'Sandy',
-        'White',
-        'Siamese',
-        'Striped',
+        'empty',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+
     ];
 
-    const imagesOne = [
-        backOne,
-        backTwo,
-        backThree,
+    const optionsThree = [
+        'common',
+        'uncommon',
+        'rare',
+        'mythical',
+        'legendary',
+        'immortal',
+
     ];
 
-    const imagesTwo = [
-        catOne,
-        catTwo,
-        catThree,
-        catFour,
-        catFive
+    const optionsFour = [
+        'blacksmith',
+        'fisherman',
+        'farmer',
+        'guard',
+        'lumberjack',
+        'miner',
     ];
+
+    const optionsFive = [
+        'empty',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+
+    ];
+
 
     const rarityOne = [
-        30,
-        50,
-        20
+        25,
+        25,
+        23,
+        10,
+        10,
+        7
     ]
 
     const rarityTwo = [
-        35,
+        0, 0.7
+    ]
+
+    const rarityThree = [
         30,
-        10,
+        50,
+        20,
         15,
-        10
+        10,
+        5
+    ]
+
+    const rarityFour = [
+        16.6,
+        16.6,
+        16.6,
+        16.6,
+        16.6,
+        16.6,
+    ]
+
+    const rarityFive = [
+        0, 3.86
     ]
 
 
 
-   const RarityItem = ({rarity, text}: RarityItem) => {
+    const RarityItem = ({rarity, text}: RarityItem) => {
         return (
             <div style={{
                 width: '100%',
@@ -118,7 +355,7 @@ export const RarityConstruct = () => {
                     fontFamily: 'Pixels',
                     color: '#fff'
                 }}>
-                    {text}
+                   {text}
                 </Typography>
 
                 <Paper style={{
@@ -141,113 +378,274 @@ export const RarityConstruct = () => {
         )
     }
 
-
     return (
 
-            <Grid container spacing={2}>
-                <Grid item md={6}>
-                    <Grid container spacing={2}>
-                        <Grid item md={12} sm={12} xs={12}>
-                    <Paper style={{
-                        width: '100%',
-                        backgroundColor: theme.palette.primary.main,
-                        padding: 0,
-                    }}>
-                    <List component="nav" aria-label="Device settings"
-                          style={{
-                              padding: 0,
-                          }}>
-                        <ListItem
-                            style={{
-                                padding: 0,
-                                paddingTop: 3,
-                                paddingLeft: 10,
-                                paddingRight: 10
-                            }}
-                            button
-                            aria-haspopup="true"
-                            aria-label="when device is locked"
-                            onClick={handleClickListItem}
-                        >
-                            <ListItemText
-                                primary={<RarityItem text="Back" rarity={rarityOne[selectedIndex]}/>
-                                    } secondary={optionsOne[selectedIndex]} />
-                        </ListItem>
-                    </List>
-                    <Menu
-                        id="lock-menu"
-                        anchorEl={anchorEl}
-                        keepMounted
-                        open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                    >
-                        {optionsOne.map((option, index) => (
-                            <MenuItem
-                                key={option}
-                                selected={index === selectedIndex}
-                                onClick={(event) => handleMenuItemClick(event, index)}
-                            >
-                                {option}
-                            </MenuItem>
-                        ))}
-                    </Menu>
-                    </Paper>
-                </Grid>
-
-                <Grid item md={12} sm={12} xs={12}>
-                    <Paper style={{
-                        width: '100%',
-                        backgroundColor: theme.palette.primary.main,
-                        padding: 0,
-                    }}>
-                        <List component="nav" aria-label="Device settings"
-                              style={{
-                                  padding: 0,
-                              }}>
-                            <ListItem
-                                style={{
-                                    padding: 0,
-                                    paddingTop: 3,
-                                    paddingLeft: 10,
-                                    paddingRight: 10
-                                }}
-                                button
-                                aria-haspopup="true"
-                                aria-controls="lock-menu"
-                                aria-label="when device is locked"
-                                onClick={handleClickListItemTwo}
-                            >
-                                <ListItemText
-                                    primary={<RarityItem text="Body" rarity={rarityTwo[selectedIndexTwo]}/>
-                                        } secondary={optionsTwo[selectedIndexTwo]} />
-                            </ListItem>
-                        </List>
-                        <Menu
-                            id="lock-menu"
-                            anchorEl={anchorElTwo}
-                            keepMounted
-                            open={Boolean(anchorElTwo)}
-                            onClose={handleCloseTwo}
-                        >
-                            {optionsTwo.map((option, index) => (
-                                <MenuItem
-                                    key={option}
-                                    selected={index === selectedIndexTwo}
-                                    onClick={(event) => handleMenuItemClickTwo(event, index)}
+        <Grid container spacing={2}>
+            <Grid item md={6}>
+                <Grid container spacing={2}>
+                    <Grid item md={12} sm={12} xs={12}>
+                        <Paper style={{
+                            width: '100%',
+                            backgroundColor: theme.palette.primary.main,
+                            padding: 0,
+                        }}>
+                            <List component="nav" aria-label="Device settings"
+                                  style={{
+                                      padding: 0,
+                                  }}>
+                                <ListItem
+                                    style={{
+                                        padding: 0,
+                                        paddingTop: 3,
+                                        paddingLeft: 10,
+                                        paddingRight: 10
+                                    }}
+                                    button
+                                    aria-haspopup="true"
+                                    aria-label="when device is locked"
+                                    onClick={handleClickListItem}
                                 >
-                                    {option}
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Paper>
-                </Grid>
+                                    <ListItemText
+                                        primary={<RarityItem text="Back" rarity={rarityOne[selectedIndex]}/>
+                                        } secondary={`${optionsOne[selectedIndex]} ${selectedIndex + 1}`}/>
+                                </ListItem>
+                            </List>
+                            <Menu
+                                id="lock-menu"
+                                anchorEl={anchorEl}
+                                keepMounted
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                                {optionsOne.map((option, index) => (
+                                    <MenuItem
+                                        key={option}
+                                        selected={index === selectedIndex}
+                                        onClick={(event) => handleMenuItemClick(event, index)}
+                                    >
+                                        {`${option} ${index + 1}`}
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Paper>
                     </Grid>
-                </Grid>
-                <Grid item md={6} sm={6} xs={12} className="image-container">
-                    <img src={imagesOne[selectedIndex]} alt="loading..." className="first-image" />
-                    <img src={imagesTwo[selectedIndexTwo]} alt="loading..." className="second-image" />
-                </Grid>
+
+                    <Grid item md={12} sm={12} xs={12}>
+                        <Paper style={{
+                            width: '100%',
+                            backgroundColor: theme.palette.primary.main,
+                            padding: 0,
+                        }}>
+                            <List component="nav" aria-label="Device settings"
+                                  style={{
+                                      padding: 0,
+                                  }}>
+                                <ListItem
+                                    style={{
+                                        padding: 0,
+                                        paddingTop: 3,
+                                        paddingLeft: 10,
+                                        paddingRight: 10
+                                    }}
+                                    button
+                                    aria-haspopup="true"
+                                    aria-label="when device is locked"
+                                    onClick={handleClickListItemThree}
+                                >
+                                    <ListItemText
+                                        primary={<RarityItem text="Frame" rarity={rarityThree[selectedIndexThree]}/>
+                                        } secondary={optionsThree[selectedIndexThree]}/>
+                                </ListItem>
+                            </List>
+                            <Menu
+                                id="lock-menu"
+                                anchorEl={anchorElThree}
+                                keepMounted
+                                open={Boolean(anchorElThree)}
+                                onClose={handleCloseThree}
+                            >
+                                {optionsThree.map((option, index) => (
+                                    <MenuItem
+                                        key={option}
+                                        selected={index === selectedIndexThree}
+                                        onClick={(event) => handleMenuItemClickThree(event, index)}
+                                    >
+                                        {option}
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Paper>
+                    </Grid>
+
+
+                    <Grid item md={12} sm={12} xs={12}>
+                        <Paper style={{
+                            width: '100%',
+                            backgroundColor: theme.palette.primary.main,
+                            padding: 0,
+                        }}>
+                            <List component="nav" aria-label="Device settings"
+                                  style={{
+                                      padding: 0,
+                                  }}>
+                                <ListItem
+                                    style={{
+                                        padding: 0,
+                                        paddingTop: 3,
+                                        paddingLeft: 10,
+                                        paddingRight: 10
+                                    }}
+                                    button
+                                    aria-haspopup="true"
+                                    aria-label="when device is locked"
+                                    onClick={handleClickListItemFour}
+                                >
+                                    <ListItemText
+                                        primary={<RarityItem text="Job" rarity={rarityFour[selectedIndexFour]}/>
+                                        } secondary={optionsFour[selectedIndexFour]}/>
+                                </ListItem>
+                            </List>
+                            <Menu
+                                id="lock-menu"
+                                anchorEl={anchorElFour}
+                                keepMounted
+                                open={Boolean(anchorElFour)}
+                                onClose={handleCloseFour}
+                            >
+                                {optionsFour.map((option, index) => (
+                                    <MenuItem
+                                        key={option}
+                                        selected={index === selectedIndexFour}
+                                        onClick={(event) => handleMenuItemClickFour(event, index)}
+                                    >
+                                        {option}
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Paper>
+                    </Grid>
+
+                    <Grid item md={12} sm={12} xs={12}>
+                        <Paper style={{
+                            width: '100%',
+                            backgroundColor: theme.palette.primary.main,
+                            padding: 0,
+                        }}>
+                            <List component="nav" aria-label="Device settings"
+                                  style={{
+                                      padding: 0,
+                                  }}>
+                                <ListItem
+                                    style={{
+                                        padding: 0,
+                                        paddingTop: 3,
+                                        paddingLeft: 10,
+                                        paddingRight: 10
+                                    }}
+                                    button
+                                    aria-haspopup="true"
+                                    aria-label="when device is locked"
+                                    onClick={handleClickListItemFive}
+                                >
+                                    <ListItemText
+                                        primary={<RarityItem text="Common" rarity={selectedIndexFive > 0 ? rarityFive[1] : rarityFive[0]}/>
+                                        } secondary={`${selectedIndexFive > 0 ? optionsFive[1] : optionsFive[0]} ${selectedIndexFive > 0 ? selectedIndexFive : ""}`}/>
+                                </ListItem>
+                            </List>
+                            <Menu
+                                id="lock-menu"
+                                anchorEl={anchorElFive}
+                                keepMounted
+                                open={Boolean(anchorElFive)}
+                                onClose={handleCloseFive}
+                            >
+                                {optionsFive.map((option, index) => (
+                                    <MenuItem
+                                        key={option}
+                                        selected={index === selectedIndexFive}
+                                        onClick={(event) => handleMenuItemClickFive(event, index)}
+                                    >
+                                        {`${option} ${index > 0 ? index : ""}`}
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Paper>
+                    </Grid>
+
+                    <Grid item md={12} sm={12} xs={12}>
+                        <Paper style={{
+                            width: '100%',
+                            backgroundColor: theme.palette.primary.main,
+                            padding: 0,
+                        }}>
+                            <List component="nav" aria-label="Device settings"
+                                  style={{
+                                      padding: 0,
+                                  }}>
+                                <ListItem
+                                    style={{
+                                        padding: 0,
+                                        paddingTop: 3,
+                                        paddingLeft: 10,
+                                        paddingRight: 10
+                                    }}
+                                    button
+                                    aria-haspopup="true"
+                                    aria-controls="lock-menu"
+                                    aria-label="when device is locked"
+                                    onClick={handleClickListItemTwo}
+                                >
+                                    <ListItemText
+                                        primary={<RarityItem text="Legendary" rarity={selectedIndexTwo > 0 ? rarityTwo[1] : rarityTwo[0]}/>
+                                        } secondary={`${selectedIndexTwo > 0 ? optionsTwo[1] : optionsTwo[0]} ${selectedIndexTwo > 0 ? selectedIndexTwo : ""}`}/>
+                                </ListItem>
+                            </List>
+                            <Menu
+                                id="lock-menu"
+                                anchorEl={anchorElTwo}
+                                keepMounted
+                                open={Boolean(anchorElTwo)}
+                                onClose={handleCloseTwo}
+                            >
+                                {optionsTwo.map((option, index) => (
+                                    <MenuItem
+                                        key={option}
+                                        selected={index === selectedIndexTwo}
+                                        onClick={(event) => handleMenuItemClickTwo(event, index)}
+                                    >
+                                        {`${option} ${index > 0 ? index : ""}`}
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Paper>
+                    </Grid>
             </Grid>
+            </Grid>
+
+            <Grid item md={6} sm={6} xs={12} className="image-container" style={{
+                minHeight: 450
+            }}>
+                <img src={rarity[selectedIndexThree].default} alt="loading..." style={{
+                    position: 'absolute', top: 0, left: '10%', zIndex: 3
+                }}/>
+                <img src={back[selectedIndex].default} alt="loading..." style={{
+                    position: 'absolute', top: 0, left: '10%', zIndex: 1
+                }}/>
+                <img src={legendary[selectedIndexTwo].default} alt="loading..." style={{
+                    position: 'absolute', top: 0, left: '10%', zIndex: 2
+                }}/>
+                <img src={common[selectedIndexFive].default} alt="loading..." style={{
+                    position: 'absolute', top: 0, left: '10%', zIndex: 2
+                }}/>
+                <img src={job[selectedIndexFour].default} alt="loading..." style={{
+                    position: 'absolute', top: 0, left: '10%', zIndex: 4
+                }}/>
+
+
+            </Grid>
+
+
+        </Grid>
 
     );
 };

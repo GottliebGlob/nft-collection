@@ -39,14 +39,6 @@ import Info from "../../components/Info";
 import CountDown from "../../components/Countdown";
 import InactiveMintButton from "../../components/InactiveMintButton";
 
-
-import coming from "../../img/icons/coming.png"
-import secondaryRegular from "../../img/btn1/regular.png"
-import secondaryHovered from "../../img/btn1/hovered.png"
-
-import downloadRegular from "../../img/btn2/regular.png"
-import downloadHovered from "../../img/btn2/hovered.png"
-
 import isMobile from "../../components/isMobile"
 import {BiLeftArrowCircle} from "react-icons/bi"
 import {useTheme} from "@material-ui/core";
@@ -86,12 +78,8 @@ export const MintPage = (props: HomeProps) => {
     const [isWLOnly, setIsWLOnly] = useState(false);
     const [refreshFlag, setRefreshFlag] = useState(false)
 
-    const [secBtn, setSecBtn] = useState(secondaryRegular)
-    const [downBtn, setDownBtn] = useState(downloadRegular)
-
     const mobileMarker = isMobile()
     const theme = useTheme()
-
 
     const [alertState, setAlertState] = useState<AlertState>({
         open: false,

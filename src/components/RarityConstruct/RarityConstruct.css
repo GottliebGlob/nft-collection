@@ -20,8 +20,8 @@
 
 .second-image {
     z-index: 2;
-    position: absolute;
-    top: -8px;
+    position: relative;
+    top: -80px;
     left: 0;
     min-width: 300px;
     width: 100%;

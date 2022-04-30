@@ -14,7 +14,7 @@ import logo from "../../img/logo.png"
 
 import background from "../../img/back.png"
 import {FaDiscord, FaTwitter} from "react-icons/fa";
-import {Grid, useTheme} from "@material-ui/core";
+import {Fade, Slide, useTheme} from "@material-ui/core";
 import Rarity from "../../components/Rarity";
 import Team from "../../components/Team";
 import NftCarousel from "../../components/Carousel";
@@ -65,7 +65,8 @@ export const MainPage = () => {
                                     <FaTwitter style={{fontSize: 50, color: '#fff', }}
                                                onClick={()=> window.open("https://twitter.com/heroes_of_veil", "_blank")}
                                     />
-                                </div> </TextCont> </DesContainer> :   <NavigationBar
+                                </div> </TextCont> </DesContainer> :
+                        <NavigationBar
                             aboutRef={aboutRef}
                             rarityRef={rarityRef}
                             gameRef={gameRef}
@@ -75,10 +76,16 @@ export const MainPage = () => {
                         />
                 }
 
+                    <Fade in timeout={1000}>
+
                     <img src={logo} alt="loading..."
                          style={{width: window.innerWidth > 530 ? "30%" : "90%", textAlign: 'center'}}/>
+                    </Fade>
+
 
                     <NftCarousel />
+
+
 
                            <About aboutRef={aboutRef} rarityRef={rarityRef}/>
 
