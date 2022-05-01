@@ -363,7 +363,7 @@ export const MintPage = (props: HomeProps) => {
 
 
                 {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
-                <ShimmerTitle>You are whitelisted!</ShimmerTitle>}
+                <ShimmerTitle>You are whitelisted</ShimmerTitle>}
 
                     <DesContainer  maxWidth="md" style={{width: '50%', maxWidth: 650}}>
                         <Grid container spacing={0}>
@@ -380,12 +380,12 @@ export const MintPage = (props: HomeProps) => {
                                     width: '100%'
                                 }}>
                                     <Grid item md={12} sm={12} xs={12}>
-                                        <Info price={price ? isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel) : '0.001 SOL'}/>
+                                        <Info price={price ? isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel) : '0.1 SOL'}/>
                                     </Grid>
 
                                     <Grid item md={12} sm={12} xs={12}>
                                         {wallet && isActive ?  <Paper style={{
-                                            backgroundColor: "#3d5a80",
+                                            backgroundColor: theme.palette.primary.dark,
                                             marginTop: '1rem',
                                             marginBottom: '1rem'
                                         }}>

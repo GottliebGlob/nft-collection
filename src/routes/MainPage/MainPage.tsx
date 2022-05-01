@@ -18,6 +18,7 @@ import {Fade, Slide, useTheme} from "@material-ui/core";
 import Rarity from "../../components/Rarity";
 import Team from "../../components/Team";
 import NftCarousel from "../../components/Carousel";
+import Promo from "../../components/Promo";
 
 
 
@@ -125,6 +126,8 @@ export const MainPage = () => {
                 backgroundColor: theme.palette.primary.dark
             }}>
                <Team />
+
+                <Promo />
             </FullHeightContainer>
 
         </main>
