@@ -6,6 +6,7 @@ import promoThree from "../../img/promo/promoThree.png"
 import promoFour from "../../img/promo/promoFour.png"
 import promoFive from "../../img/promo/promoFive.png"
 import promoSix from "../../img/promo/promoSix.png"
+import promoSeven from "../../img/promo/promoSeven.png"
 import {ShimmerTitle} from "../styled";
 
 export const Promo = () => {
@@ -80,6 +81,16 @@ export const Promo = () => {
                <img src={promoSix} alt="loading..."
                     onClick={() => window.open("https://nftdroops.com/", "_blank")}
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
+           </Grid>
+
+           <Grid item sm={12} md={12} lg={12} style={{
+               display: 'flex',
+               justifyContent: 'center',
+               alignItems: 'center'
+           }}>
+               <img src={promoSeven} alt="loading..."
+                    onClick={() => window.open("https://nft-list.io/", "_blank")}
+                    style={{width: '8%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
        </Grid>
         </Container>
