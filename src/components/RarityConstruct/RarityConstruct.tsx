@@ -50,7 +50,6 @@ export const RarityConstruct = () => {
     //@ts-ignore
     const common = importAll(require.context('../../img/rarity/common', false, /\.(gif)$/));
 
-
     //Field one
     const handleClickListItem = (event: SyntheticEvent) => {
         setAnchorEl(event.currentTarget);
@@ -338,7 +337,7 @@ export const RarityConstruct = () => {
     ]
 
     const rarityFive = [
-        0, 3.86
+        0, 3.86, 4.5, 6,1
     ]
 
 
@@ -548,8 +547,10 @@ export const RarityConstruct = () => {
                                     onClick={handleClickListItemFive}
                                 >
                                     <ListItemText
-                                        primary={<RarityItem text="Common" rarity={selectedIndexFive > 0 ? rarityFive[1] : rarityFive[0]}/>
-                                        } secondary={`${selectedIndexFive > 0 ? optionsFive[1] : optionsFive[0]} ${selectedIndexFive > 0 ? selectedIndexFive : ""}`}/>
+                                        primary={<RarityItem text="Common" rarity={selectedIndexFive > 0 ? selectedIndexFive > 80 ?
+                                            rarityFive[1] : selectedIndexFive > 40 ?
+                                            rarityFive[2] : rarityFive[3] : rarityFive[0]}/>
+                                        } secondary={`${selectedIndexFive > 0 ? optionsFive[1] : optionsFive[0]} ${selectedIndexFive > 0 ? selectedIndexFive + 20 : ""}`}/>
                                 </ListItem>
                             </List>
                             <Menu
@@ -565,7 +566,7 @@ export const RarityConstruct = () => {
                                         selected={index === selectedIndexFive}
                                         onClick={(event) => handleMenuItemClickFive(event, index)}
                                     >
-                                        {`${option} ${index > 0 ? index : ""}`}
+                                        {`${option} ${index > 0 ? index + 20 : ""}`}
                                     </MenuItem>
                                 ))}
                             </Menu>
@@ -622,9 +623,8 @@ export const RarityConstruct = () => {
             </Grid>
             </Grid>
 
-            <Grid item md={6} sm={6} xs={12} className="image-container" style={{
-                minHeight: 450
-            }}>
+            <Grid item md={6} sm={6} xs={12} className="image-container"
+                  style={{minHeight: 450}}>
                 <img src={rarity[selectedIndexThree].default} alt="loading..." style={{
                     position: 'absolute', top: 0, left: '10%', zIndex: 3
                 }}/>
