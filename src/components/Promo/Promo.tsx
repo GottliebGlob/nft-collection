@@ -7,6 +7,7 @@ import promoFour from "../../img/promo/promoFour.png"
 import promoFive from "../../img/promo/promoFive.png"
 import promoSix from "../../img/promo/promoSix.png"
 import promoSeven from "../../img/promo/promoSeven.png"
+import promoEight from "../../img/promo/promoEight.png"
 import {ShimmerTitle} from "../styled";
 
 export const Promo = () => {
@@ -23,7 +24,7 @@ export const Promo = () => {
             </ShimmerTitle>
 
        <Grid container spacing={1}>
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -33,7 +34,7 @@ export const Promo = () => {
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -43,7 +44,7 @@ export const Promo = () => {
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -53,7 +54,7 @@ export const Promo = () => {
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -63,7 +64,7 @@ export const Promo = () => {
                     style={{width: '40%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -73,7 +74,7 @@ export const Promo = () => {
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={2} md={2} lg={2} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
@@ -83,14 +84,24 @@ export const Promo = () => {
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
 
-           <Grid item sm={12} md={12} lg={12} style={{
+           <Grid item sm={3} md={3} lg={3} style={{
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
            }}>
                <img src={promoSeven} alt="loading..."
                     onClick={() => window.open("https://nft-list.io/", "_blank")}
-                    style={{width: '8%', textAlign: 'center', cursor: 'pointer'}}/>
+                    style={{width: '40%', textAlign: 'center', cursor: 'pointer'}}/>
+           </Grid>
+
+           <Grid item sm={3} md={3} lg={3} style={{
+               display: 'flex',
+               justifyContent: 'center',
+               alignItems: 'center'
+           }}>
+               <img src={promoEight} alt="loading..."
+                    onClick={() => window.open("https://nft-list.io/", "_blank")}
+                    style={{width: '90%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
        </Grid>
         </Container>
