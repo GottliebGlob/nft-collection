@@ -26,7 +26,7 @@ const theme = useTheme()
                 </ShimmerTitle>
             <FaqItem question="Why should I buy Darkland Creatures Cards NFTs❓"
                      answer="Holding Darkland Creatures Cards NFTs will
-                     allow you to get a whitelist on a Polygon p2e game"/>
+                     allow you to take part in p2e game"/>
 
                 <FaqItem question="MINT price❓"
                          answer="0.1 SOL for public mint and 0.08 for whitelist"/>

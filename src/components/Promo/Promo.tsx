@@ -100,7 +100,7 @@ export const Promo = () => {
                alignItems: 'center'
            }}>
                <img src={promoEight} alt="loading..."
-                    onClick={() => window.open("https://nft-list.io/", "_blank")}
+                    onClick={() => window.open("https://nftheaven.site/", "_blank")}
                     style={{width: '90%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
        </Grid>

@@ -104,7 +104,8 @@ export const MintPage = (props: HomeProps) => {
             setCandyMachine(cndy);
             setItemsAvailable(cndy.state.itemsAvailable);
             setItemsRemaining(cndy.state.itemsRemaining);
-            setItemsRedeemed(cndy.state.itemsRedeemed);
+            let tempItems = itemsRedeemed
+            setItemsRedeemed(cndy.state.itemsRedeemed >= tempItems ? cndy.state.itemsRedeemed : tempItems);
 
             var divider = 1;
             if (decimals) {
@@ -325,17 +326,21 @@ export const MintPage = (props: HomeProps) => {
         [refreshFlag]
     );
 
+    const startDate = new Date("14 May 2022 16:00:00 GMT")
+    const startWlDate = new Date("14 May 2022 17:00:00 GMT")
+
 
     return (
         <main style={{
             backgroundImage: `url(${mint_back})`,
-            width: '100%',
+            width: window.innerWidth > 530 ? '100%' : window.innerWidth,
+            overflowX: 'hidden',
             backgroundSize: 'cover',
             height: '100%',
             minHeight: '100vh'
         }}>
             <MainContainer style={{
-                marginTop: window.innerWidth > 530 ? 50 : 0
+                marginTop: 50,
             }}>
                 <NavLink to="/" style={{textDecoration: 'none'}}>
                 <BiLeftArrowCircle style={{
@@ -365,7 +370,7 @@ export const MintPage = (props: HomeProps) => {
                 {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
                 <ShimmerTitle>You are whitelisted</ShimmerTitle>}
 
-                    <DesContainer  maxWidth="md" style={{width: '50%', maxWidth: 650}}>
+                    <DesContainer  maxWidth="md" style={{width: window.innerWidth > 530 ? '50%' : '90vw', maxWidth: 650}}>
                         <Grid container spacing={0}>
                         <Grid item md={12} sm={12} style={{
                             textAlign: 'center',
@@ -384,7 +389,8 @@ export const MintPage = (props: HomeProps) => {
                                     </Grid>
 
                                     <Grid item md={12} sm={12} xs={12}>
-                                        {wallet && isActive ?  <Paper style={{
+                                        {wallet && isActive &&
+                                        (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() > startWlDate : new Date() > startDate) ?  <Paper style={{
                                             backgroundColor: theme.palette.primary.dark,
                                             marginTop: '1rem',
                                             marginBottom: '1rem'
@@ -405,7 +411,7 @@ export const MintPage = (props: HomeProps) => {
                                                     value={100 - (itemsRemaining * 100 / itemsAvailable)}/>
                                             </div>
                                         </Paper> : <Countdown
-                                            date={new Date("14 May 2022 17:00:00 GMT")}
+                                            date={ whitelistEnabled && (whitelistTokenBalance > 0) ? startWlDate : startDate}
                                             onMount={({completed}) => completed && setIsActive(!isEnded)}
                                             onComplete={() => {
                                                 setIsActive(!isEnded);
@@ -416,7 +422,7 @@ export const MintPage = (props: HomeProps) => {
                                     </Grid>
                                     <Grid item md={12} sm={12} xs={12}>
                                         <MintButtonContainer>
-                                            {!isActive && !isEnded && candyMachine?.state.goLiveDate && (!isWLOnly || whitelistTokenBalance > 0) || mobileMarker ? <InactiveMintButton /> : (
+                                            {!isActive && !isEnded && candyMachine?.state.goLiveDate && (!isWLOnly || whitelistTokenBalance > 0) || (whitelistEnabled && (whitelistTokenBalance > 0) ? new Date() < startWlDate : new Date() < startDate) ? <InactiveMintButton /> : (
                                                 !wallet ? (
                                                     <FullWidthConnectButton>Connect Wallet</FullWidthConnectButton>
                                                 ) : (!isWLOnly || whitelistTokenBalance > 0) ?

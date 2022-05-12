@@ -1,6 +1,7 @@
 import React, {useRef} from "react";
 
-import {MainContainer, TextCont, DesContainer, FullHeightContainer} from "../../components/styled";
+import {MainContainer, TextCont, DesContainer, FullHeightContainer, ShimmerTitle} from "../../components/styled";
+import {NavLink} from "react-router-dom";
 
 import NavigationBar from "../../components/NavigationBar";
 import About from "../../components/About";
@@ -14,7 +15,7 @@ import logo from "../../img/logo.png"
 
 import background from "../../img/back.png"
 import {FaDiscord, FaTwitter} from "react-icons/fa";
-import {Fade, Slide, useTheme} from "@material-ui/core";
+import {Fade, Paper, Slide, Typography, useTheme} from "@material-ui/core";
 import Rarity from "../../components/Rarity";
 import Team from "../../components/Team";
 import NftCarousel from "../../components/Carousel";
@@ -63,6 +64,22 @@ export const MainPage = () => {
                                 }}>
                                     <FaDiscord style={{fontSize: 50, color: '#fff'}}
                                                onClick={()=> window.open("https://discord.gg/sVcy4xpGAu", "_blank")} />
+
+                                    <Paper style={{
+                                    backgroundColor: theme.palette.primary.light
+                                    }}>
+                                        <NavLink to="mint" style={{textDecoration: 'none'}}>
+                                        <Typography variant="h4" style={{
+                                            color: '#fff',
+                                            fontFamily: 'Pixels',
+                                            padding: 5,
+                                            marginLeft: 3
+                                        }}>
+                                            mint
+                                        </Typography>
+                                        </NavLink>
+                                    </Paper>
+
                                     <FaTwitter style={{fontSize: 50, color: '#fff', }}
                                                onClick={()=> window.open("https://twitter.com/heroes_of_veil", "_blank")}
                                     />

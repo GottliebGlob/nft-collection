@@ -41,7 +41,7 @@ export const Game = (props: Ref) => {
                                  style={{height: window.innerWidth > 530 ? 220 : 150, float: 'left', marginLeft: 5, marginRight: 5}}/>
 
                             Now we are developing a game called Forest Industry.
-                            This is a p2e game on Polygon blockchain with Darkland Creatures Cards as characters.
+                            This is a p2e game on Solana blockchain with Darkland Creatures Cards as characters.
                             The game will have 6 types of cards that correspond to 6 classes.
                             YOU CAN SEE THESE PROFESSIONS IN THE RIGHT CORNER ON THE CARD. There is
                             BLACKSMITH

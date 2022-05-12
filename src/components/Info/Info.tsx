@@ -13,7 +13,7 @@ export const Info = (props: Price) => {
 
     return (
         <Grid container spacing={1}>
-            <Grid item sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Paper style={{
                     width: '100%',
                     height: '100%',
@@ -32,6 +32,7 @@ export const Info = (props: Price) => {
                                     style={{
                                         color: '#fff',
                                         fontFamily: 'pixels',
+                                        marginTop: window.innerWidth > 530 ? "auto" : 6
                                     }}
                         >
                             Price
@@ -42,7 +43,7 @@ export const Info = (props: Price) => {
                 </Paper>
             </Grid>
 
-            <Grid item sm={6} md={6} lg={6}>
+            <Grid item xs={12} sm={6} md={6} lg={6}>
                 <Paper style={{
                     width: '100%',
                     height: '100%',
@@ -58,7 +59,7 @@ export const Info = (props: Price) => {
                         justifyContent: 'center'
                     }}>
                         <Typography variant={window.innerWidth > 530 ? "h6" : "body1"}
-                                    style={{color: '#fff', fontFamily: 'pixels',}}>
+                                    style={{color: '#fff', fontFamily: 'pixels',    marginTop: window.innerWidth > 530 ? "auto" : 6}}>
                             Supply
                         </Typography>
 
