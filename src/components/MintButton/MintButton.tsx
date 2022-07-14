@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {CircularProgress} from '@material-ui/core';
 import {GatewayStatus, useGateway} from '@civic/solana-gateway-react';
-import {CandyMachine} from '../../candy-machine';
+import {CandyMachineAccount} from '../../candy-machine';
 
 
 const CTAButton = styled(Button)`
@@ -26,7 +26,7 @@ export const MintButton = ({
                                isSoldOut
                            }: {
     onMint: () => Promise<void>;
-    candyMachine: CandyMachine | undefined;
+    candyMachine?: CandyMachineAccount;
     isMinting: boolean;
     isEnded: boolean;
     isActive: boolean;

@@ -23,7 +23,7 @@ export const RarityConstruct = () => {
     const [selectedIndex, setSelectedIndex] = useState(0);
 
     const [anchorElTwo, setAnchorElTwo] = useState<null | EventTarget & Element>(null);
-    const [selectedIndexTwo, setSelectedIndexTwo] = useState(14);
+    const [selectedIndexTwo, setSelectedIndexTwo] = useState(1);
 
     const [anchorElThree, setAnchorElThree] = useState<null | EventTarget & Element>(null);
     const [selectedIndexThree, setSelectedIndexThree] = useState(0);
@@ -132,7 +132,6 @@ export const RarityConstruct = () => {
         'bg',
         'bg',
         'bg',
-        'bg'
     ];
 
     const optionsTwo = [
@@ -146,18 +145,6 @@ export const RarityConstruct = () => {
         'hero',
         'hero',
         'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-
     ];
 
     const optionsThree = [
@@ -190,107 +177,7 @@ export const RarityConstruct = () => {
         'hero',
         'hero',
         'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
-        'hero',
+
         'hero',
         'hero',
         'hero',
@@ -302,6 +189,37 @@ export const RarityConstruct = () => {
         'hero',
         'hero',
 
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
+        'hero',
     ];
 
 
@@ -309,7 +227,6 @@ export const RarityConstruct = () => {
         25,
         25,
         23,
-        10,
         10,
         7
     ]
@@ -547,10 +464,10 @@ export const RarityConstruct = () => {
                                     onClick={handleClickListItemFive}
                                 >
                                     <ListItemText
-                                        primary={<RarityItem text="Common" rarity={selectedIndexFive > 0 ? selectedIndexFive > 80 ?
-                                            rarityFive[1] : selectedIndexFive > 40 ?
+                                        primary={<RarityItem text="Common" rarity={selectedIndexFive > 0 ? selectedIndexFive > 20 ?
+                                            rarityFive[1] : selectedIndexFive > 10 ?
                                             rarityFive[2] : rarityFive[3] : rarityFive[0]}/>
-                                        } secondary={`${selectedIndexFive > 0 ? optionsFive[1] : optionsFive[0]} ${selectedIndexFive > 0 ? selectedIndexFive + 20 : ""}`}/>
+                                        } secondary={`${selectedIndexFive > 0 ? optionsFive[1] : optionsFive[0]} ${selectedIndexFive > 0 ? selectedIndexFive : ""}`}/>
                                 </ListItem>
                             </List>
                             <Menu
@@ -566,7 +483,7 @@ export const RarityConstruct = () => {
                                         selected={index === selectedIndexFive}
                                         onClick={(event) => handleMenuItemClickFive(event, index)}
                                     >
-                                        {`${option} ${index > 0 ? index + 20 : ""}`}
+                                        {`${option} ${index > 0 ? index : ""}`}
                                     </MenuItem>
                                 ))}
                             </Menu>

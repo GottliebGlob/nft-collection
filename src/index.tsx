@@ -48,7 +48,6 @@ const Mint = withLayout(() => <App />);
 const Main = withLayout(() => <MainPage />);
 
 ReactDOM.render(
-  <React.StrictMode>
       <ThemeProvider theme={theme}>
       <BrowserRouter>
           <Routes>
@@ -56,8 +55,7 @@ ReactDOM.render(
               <Route path="mint" element={<Mint />} />
           </Routes>
       </BrowserRouter>
-      </ThemeProvider>
-  </React.StrictMode>,
+      </ThemeProvider>,
   document.getElementById('root')
 );
 

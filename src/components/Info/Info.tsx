@@ -63,7 +63,7 @@ export const Info = (props: Price) => {
                             Supply
                         </Typography>
 
-                        <ShimmerText>555</ShimmerText>
+                        <ShimmerText>777</ShimmerText>
                     </div>
 
                 </Paper>

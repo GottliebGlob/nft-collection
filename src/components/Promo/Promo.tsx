@@ -48,26 +48,6 @@ export const Promo = () => {
                display: 'flex',
                justifyContent: 'center',
                alignItems: 'center'
-           }} >
-               <img src={promoThree} alt="loading..."
-                    onClick={() => window.open("https://nftsolanacalendar.com/", "_blank")}
-                    style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
-           </Grid>
-
-           <Grid item sm={3} md={3} lg={3} style={{
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center'
-           }}>
-               <img src={promoFour} alt="loading..."
-                    onClick={() => window.open("https://nftartpedia.com/", "_blank")}
-                    style={{width: '40%', textAlign: 'center', cursor: 'pointer'}}/>
-           </Grid>
-
-           <Grid item sm={3} md={3} lg={3} style={{
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center'
            }}>
                <img src={promoFive} alt="loading..."
                     onClick={() => window.open("https://raritysniper.com/", "_blank")}
@@ -82,26 +62,6 @@ export const Promo = () => {
                <img src={promoSix} alt="loading..."
                     onClick={() => window.open("https://nftdroops.com/", "_blank")}
                     style={{width: '80%', textAlign: 'center', cursor: 'pointer'}}/>
-           </Grid>
-
-           <Grid item sm={3} md={3} lg={3} style={{
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center'
-           }}>
-               <img src={promoSeven} alt="loading..."
-                    onClick={() => window.open("https://nft-list.io/", "_blank")}
-                    style={{width: '40%', textAlign: 'center', cursor: 'pointer'}}/>
-           </Grid>
-
-           <Grid item sm={3} md={3} lg={3} style={{
-               display: 'flex',
-               justifyContent: 'center',
-               alignItems: 'center'
-           }}>
-               <img src={promoEight} alt="loading..."
-                    onClick={() => window.open("https://nftheaven.site/", "_blank")}
-                    style={{width: '90%', textAlign: 'center', cursor: 'pointer'}}/>
            </Grid>
        </Grid>
         </Container>

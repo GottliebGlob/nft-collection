@@ -24,7 +24,12 @@ const theme = useTheme()
                 }}>
                     FAQ
                 </ShimmerTitle>
-            <FaqItem question="Why should I buy Darkland Creatures Cards NFTs❓"
+
+            <FaqItem question="Why should I mint Forest Industry NFTs❓"
+                     answer="Holding Forest Industry NFTs allows you to get passive income in $FERO tokens
+                     that you can trade for SOL."/>
+
+            <FaqItem question="Why should I hold Darkland Creatures Cards NFTs❓"
                      answer="Holding Darkland Creatures Cards NFTs will
                      allow you to take part in p2e game"/>
 
@@ -40,13 +45,17 @@ const theme = useTheme()
                 <FaqItem question="Secondary markets❓"
                          answer="We have already received approval on Magical Eden."/>
 
+            <FaqItem question="What about FERO token❓"
+                     answer="FERO is a token for rewarding Forest Industry collections holders.
+                     You can earn it staking your Forest Industry NFTs or as a reward for community events."/>
+
                 <FaqItem question="What about ONYX token❓"
                          answer="ONYX is an in-game currency earned by your NFTs in Forest Industries.
                          It can be used to improve the characteristics of the characters or exchanged."/>
 
                 <FaqItem question="How to get whitelist❓"
-                         answer="Be the holder of 1 or more NFT Darkland Creatures collection or
-                         Invite 3 friends to our discord and and Reach Level 6"/>
+                         answer="Be the holder of 1 or more Forest Industry NFT, create a fan-art, win in giveaways or
+                         Invite 3 friends to our discord and and Reach Level 5"/>
         </DesContainer>
     );
 };

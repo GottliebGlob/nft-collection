@@ -111,24 +111,6 @@ export const NavigationBar = (props: Refs) => {
 
             <div
                 className="hovered-div"
-                onClick={() => handleNavClick(props.tokenRef)}
-                style={{
-                    width: '13%',
-                    textAlign: 'center'
-                }}>
-                <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
-                            style={{
-                                color: 'black',
-                                borderRight: '1px solid lightsteelblue',
-                                fontFamily: 'pixels',
-                            }}
-                >
-                    Token
-                </Typography>
-            </div>
-
-            <div
-                className="hovered-div"
                 onClick={() => handleNavClick(props.faqRef)}
                 style={{
                     width: '13%',
@@ -160,6 +142,23 @@ export const NavigationBar = (props: Refs) => {
                             }}
                 >
                     Roadmap
+                </Typography>
+            </div>
+            <div
+                className="hovered-div"
+                onClick={()=> window.open("https://forest-industry.gitbook.io/game", "_blank")}
+                style={{
+                    width: '13%',
+                    textAlign: 'center'
+                }}>
+                <Typography variant={window.innerWidth > 530 ? "body1" : "body2"}
+                            style={{
+                                color: 'black',
+                                borderRight: '1px solid lightsteelblue',
+                                fontFamily: 'pixels',
+                            }}
+                >
+                   Whitepaper
                 </Typography>
             </div>
 

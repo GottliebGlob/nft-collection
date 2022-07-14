@@ -15,7 +15,7 @@ export const InactiveMintButton = () => {
   color: #fff !important;
 `;
 
-    const alertMessage = isMobile() ? "Please use desktop!" : "Mint is not live yet!"
+    const alertMessage = "Mint is not live yet!"
 
     return (
         <div style={{
