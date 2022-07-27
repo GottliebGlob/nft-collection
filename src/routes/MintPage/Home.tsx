@@ -485,7 +485,7 @@ export const MintPage = (props: HomeProps) => {
     };
 
     const startDate = new Date("16 July 2022 17:00:00 GMT")
-    const startWlDate = new Date("16 July 2022 16:30:00:00 GMT")
+    const startWlDate = new Date("16 July 2022 12:30:00:00 GMT")
 
 
     return (
@@ -525,8 +525,7 @@ export const MintPage = (props: HomeProps) => {
 
 
 
-                {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && isBurnToken &&
-                <ShimmerTitle>You are whitelisted</ShimmerTitle>}
+                {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) && <ShimmerTitle>You are whitelisted</ShimmerTitle>}
 
                     <DesContainer  maxWidth="md" style={{width: window.innerWidth > 530 ? '50%' : '90vw', maxWidth: 650}}>
                         <Grid container spacing={0}>

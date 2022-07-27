@@ -10,6 +10,7 @@ import rarFour from "../../img/icons/rarFour.png"
 import rarFive from "../../img/icons/rarFive.png"
 import rarSix from "../../img/icons/rarSix.png"
 import RarityConstruct from "../RarityConstruct";
+import RarityConstructOld from "../RarityConstructOld"
 
 
 interface Ref {
@@ -58,6 +59,13 @@ export const Rarity = (props: Ref) => {
                     <ShimmerTitle style={{
                         textAlign: 'center'
                     }}>Rarity sandbox</ShimmerTitle>
+                    <ShimmerTitle style={{
+                        textAlign: 'center'
+                    }}>GEN I</ShimmerTitle>
+                    <RarityConstructOld />
+                    <ShimmerTitle style={{
+                        textAlign: 'center'
+                    }}>GEN II</ShimmerTitle>
                     <RarityConstruct />
                 </TextCont>
             </DesContainer>
