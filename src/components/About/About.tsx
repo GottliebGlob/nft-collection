@@ -24,7 +24,7 @@ export const About = (props: Ref) => {
                                     fontFamily: 'pixels',
                                     textAlign: 'justify'
                                 }}>
-                        Forest Industry  is a collection of 777 animated cards on the Solana blockchain.
+                        Forest Discovery is a collection of 1111 animated cards on the Solana blockchain.
                         All cards will be transferred to the upcoming  game to bring it's own daily
                         income and show their secrets!
                     </Typography>

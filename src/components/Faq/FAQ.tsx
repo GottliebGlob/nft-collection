@@ -25,7 +25,13 @@ const theme = useTheme()
                     FAQ
                 </ShimmerTitle>
 
-            <FaqItem question="Why should I mint Forest Industry NFTs❓"
+            <FaqItem question="Why should I mint Forest Discovery NFTs❓"
+                     answer="Holding Forest Discovery NFTs allows you to get passive income in $FERO tokens
+                     that you can trade for SOL. Also for Forest Discovery holders there will be in-game benefits:
+                     resources and an artifact. Read more in our whitepaper."/>
+
+
+            <FaqItem question="Why should I hold Forest Industry NFTs❓"
                      answer="Holding Forest Industry NFTs allows you to get passive income in $FERO tokens
                      that you can trade for SOL."/>
 
